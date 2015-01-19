@@ -6,6 +6,6 @@ Program learning material.
 - [cs107](http://see.stanford.edu/see/courseinfo.aspx?coll=2d712634-2bf1-4b55-9a3a-ca9d470755ee)
 
 
--[Mining Massive Datasets](https://class.coursera.org/mmds-001) There is a book written for this course and basically, the course cover kinds of methods to analysis massive datasets and explain the structure of map-reduce. [Here] is the brief introduction for this course.
+- [Mining Massive Datasets](https://class.coursera.org/mmds-001) There is a book written for this course and basically, the course cover kinds of methods to analysis massive datasets and explain the structure of map-reduce. [Here] is the brief introduction for this course.
 
 - [Project Euler](https://projecteuler.net/about) Write python code for mathmatical calculation.
