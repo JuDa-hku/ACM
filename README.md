@@ -7,3 +7,5 @@ Program learning material.
 
 
 -[Mining Massive Datasets](https://class.coursera.org/mmds-001) There is a book written for this course and basically, the course cover kinds of methods to analysis massive datasets and explain the structure of map-reduce. [Here] is the brief introduction for this course.
+
+- [Project Euler](https://projecteuler.net/about) Write python code for mathmatical calculation.
