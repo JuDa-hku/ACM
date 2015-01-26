@@ -62,8 +62,9 @@ void generateShortestPath(const string&source, const string& target, const imdb&
 		if(previousSeenActors.count(*player_iterator)==0)
 		  {
 		    previousSeenActors.insert(*player_iterator);
-		    path CopyPath(source);
-		    frontPath.deepCopy(CopyPath);
+		    //path CopyPath(source);
+		    //frontPath.deepCopy(CopyPath);
+		    path CopyPath=path(frontPath);
 		    CopyPath.addConnection(*film_iterator, *player_iterator);
 		    if(*player_iterator==target)
 		      {
