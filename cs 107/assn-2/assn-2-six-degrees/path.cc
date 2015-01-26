@@ -16,6 +16,17 @@ path::path(const string& player) : startPlayer(player) {}
 // ommission of links from init list calls the default constructor
 
 /**
+ *way to deep copy the path, which copy the links
+ */
+
+void path::deepCopy(path& newPath){
+  for(vector<connection>::iterator it=links.begin(); it!=links.end(); ++it)
+    {
+      newPath.addConnection((*it).movie, (*it).player);
+    }
+}
+
+/**
  * Simply tack on a new connection pair to the end of the links vector.
  * It ain't our business to be checking for consistency of connection, as
  * that's the resposibility of the surrounding class to decide (or at

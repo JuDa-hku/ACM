@@ -49,6 +49,12 @@ class path {
 
   path(const string& startPlayer);
 
+  /*
+   *Method: deepCopy
+   *clone the path object
+   */
+  void deepCopy(path& newCopy);
+
   /**
    * Method: getLength
    * -----------------

@@ -37,6 +37,53 @@ static string promptForActor(const string& prompt, const imdb& db)
   }
 }
 
+void generateShortestPath(const string&source, const string& target, const imdb& db)
+{
+  list<path> partialPaths;
+  set<string> previousSeenActors;
+  set<film> previousSeenFilms;
+  path startPath(source);
+  partialPaths.push_back(startPath);
+  while(!partialPaths.empty()&&partialPaths.front().getLength()<=5)
+    {
+      path frontPath=partialPaths.front();
+      partialPaths.pop_front();
+      string player=frontPath.getLastPlayer();
+      vector<film> films;
+      db.getCredits(player, films);
+      for(vector<film>::iterator film_iterator=films.begin(); film_iterator!=films.end(); ++film_iterator)
+	{
+	  if(previousSeenFilms.count(*film_iterator)==0)
+	    {
+	      previousSeenFilms.insert(*film_iterator);
+	      vector<string> players;
+	      db.getCast(*film_iterator, players);
+	      for(vector<string>::iterator player_iterator=players.begin(); player_iterator!=players.end(); ++player_iterator){
+		if(previousSeenActors.count(*player_iterator)==0)
+		  {
+		    previousSeenActors.insert(*player_iterator);
+		    path CopyPath(source);
+		    frontPath.deepCopy(CopyPath);
+		    CopyPath.addConnection(*film_iterator, *player_iterator);
+		    if(*player_iterator==target)
+		      {
+			cout<<CopyPath<<endl;
+			return;
+		      }
+		    else
+		      {
+			partialPaths.push_back(CopyPath);
+		      }
+		  }
+	      }
+	    }
+	}
+    }
+  cout<<"did't find a match"<<endl;
+  return;
+}
+
+
 /**
  * Serves as the main entry point for the six-degrees executable.
  * There are no parameters to speak of.
@@ -70,7 +117,7 @@ int main(int argc, const char *argv[])
       cout << "Good one.  This is only interesting if you specify two different people." << endl;
     } else {
       // replace the following line by a call to your generateShortestPath routine... 
-      cout << endl << "No path between those two people could be found." << endl << endl;
+      generateShortestPath(source, target, db);
     }
   }
   

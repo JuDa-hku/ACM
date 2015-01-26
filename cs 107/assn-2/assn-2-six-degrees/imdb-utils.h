@@ -65,7 +65,7 @@ inline const char *determinePathToData(const char *userSelectedPath = NULL)
   
   /* const char *ostype = getenv("OSTYPE"); */
   /* if (strcasecmp(ostype, "linux") == 0) */
-  return "/home/juda/desktop/cs107/assn-2-six-degrees-data/little-endian/"; 
+  return "/home/juda/Dropbox/github related/ACM/cs 107/assn-2/assn-2-six-degrees-data/little-endian/"; 
   /* if (strcasecmp(ostype, "solaris") == 0) */
   /*   return "/usr/class/cs107/assignments/assn-2-six-degrees-data/big-endian/"; */
   
