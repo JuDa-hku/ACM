@@ -55,3 +55,24 @@ nums = [4,2,0,3,2,5]
 print s.trap(nums)
 
 ##a revised nicer solution should be "check two side and count the total number of volumn we can have in the map and then minus then volumn of rocks", when the leftbar is smaller we move to the right and vice versa.
+
+class Solution:
+    # @param {integer[]} height
+    # @return {integer}
+    def trap(self, height):
+        start, end, totVal, minHeight = 0, len(height)-1,0,0
+        while start <= end:
+            minHeight = max(min(height[start], height[end]),minHeight)
+#            print start, end, minHeight
+            if height[start]<height[end]:
+                totVal += minHeight
+                start += 1
+            else:
+                totVal += minHeight
+                end -= 1
+        return totVal-sum(height)
+        
+s = Solution()
+height = [0,1,0,2,1,0,1,3,2,1,2,1]
+height = [10]
+print s.trap(height)
